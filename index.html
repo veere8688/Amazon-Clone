@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon-Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <a name="top"></a>
+<div class="header-container">
+    <div class="header-logo">
+        <div class="header-img-container">
+            <img src="data:image/png;base64,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">
+        
+        </div>
+        <div class="header-location">
+            <div class="header-img-location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </div>
+            <div class="header-location-details">
+                <span>Delivering To Veeresh</span>
+                <br>
+                <b>Settur 515767</b>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="header-search">
+        <div class="header-search-selection">
+            <span>All</span>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        <div class="header-search-textbox">
+            <input type="text"name="search" placeholder="Search Amazon.in">
+        </div>
+        <div class="header-search-icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="header-details">
+        <div class="header-language">
+            <img width=20px src="/images/flog.jpeg" alt="images">
+            <span>EN<span>
+                
+        </div>
+        <div class="header-signed-in">
+            <span>Hello,Veeresh</span>
+            <br>
+            <b>Accounts & Lists</b>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        <div class="header-orders">
+            <span>Returns</span>
+            <br>
+            <b>& Orders</b>
+        </div>
+        <div class="header-cart">
+            <span>0</span>
+            <br>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>    
+ 
+<div class="nav-bar">
+    <u1>
+        <li><i class="fa fa-bars" aria-hidden="true"> All</i></li>
+        <!-- <li>All</li> -->
+        <li>Fresh</li>
+        <!-- <li>Prime</li> -->
+        <li> Prime <i class="fa fa-caret-down" aria-hidden="true"></i></li>
+        <li>Buy Again</li>
+        <li>Best Seller</li>
+        <li>Amazon Mini Tv</li>
+        <li>Sell</li>
+        <li>Amazon Pay</li>
+        <li>Gift Cards</li>
+        <li>Fashion</li>
+        <li>Gift Ideas</li>
+        <li>Today's Deals</li>
+        <li>Coupones</li>
+        <li>New Launch From Mobile Elecronics & more | Shop now</li>
+        <!-- <li>Electronics & more | Shop now</li> -->
+    </u1>
+</div>
+<div class="img-slidder">
+    <div class="img-container">
+        <img src="/images/backgrond img.jpg" alt="images">
+        <img src="/images/background img1.jpg" alt="images">
+        <img src="/images/back img2.jpg" alt="images">
+        <img src="/images/back img3.jpg" alt="image">
+        <!-- <img src="/images/back img5.jpg" alt="images">
+         -->
+    </div>
+</div> 
+<div class="product-container">
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/71yaktShQCL._AC_UL480_FMwebp_QL65_ - Copy.webp"height=450px; alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>MYLOOKUP</b>
+            </div>
+            <div class="product-name">
+                <span>women Crepe Fabric Round Neck</span>
+                <br>
+                <span>Printed Dress</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i> 
+                <i class="fa fa-star" aria-hidden="true"></i> 
+                <i class="fa fa-star" aria-hidden="true"></i> 
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> 
+                <span>(45)</span>
+            </div>
+            <div class="product-price">
+                <span>-64%</span>₹<span><b>499/-</b></span><del>₹450.00</del>
+                <br>
+                <span>Free Delivery</span>
+            </div>
+        </div>
+    </div>   
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/dress2.webp"height=450px; alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>GRECIILOOKS</b>
+            </div>
+            <div class="product-name">
+                <span>Women's Cotton Blend A-Line</span>
+                <br>
+                <span>Ankle Length Dress</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(47)</span>
+            </div>
+            <div class="product-price">
+                <span>300+ bought in past month</span>
+                <b><br>₹<span>579/- </b></span> M.R.P<del>₹2.299</del><span>(75% off)</span>
+                <br>
+                <span>FREE Delivery by Amazon</span>
+            </div>
+        </div>
+    </div>   
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/dress3.webp"height=450px; alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>COTLAND Fashions</b>
+            </div>
+            <div class="product-name">
+                <span>Womens Midi Dress</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(309)</span>
+                <br>
+                <span style="background-color:  brown; color: #ffffff; font-size:13px;">Deal of the Day</span>
+            </div>
+            <div class="product-price">
+                <span>₹</span><b> 959/- </b><span> M.R.P </span><del>₹4.999</del><span>(79% off)</span>
+                <br>
+                <span>Free Delivery by Amazon</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/dress4.webp" height="450px"; alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>JB Fashions</b>
+            </div>
+            <div class="product-name">
+                <span>Dresses for Women || Western</span>
+                <br>
+                <span>Dresses for Women || Fashions</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(45)</span>
+            </div>
+            <div class="product-price">
+                <span>₹</span><b>799/- </b><span>M.R.P</span><del>₹4.999</del><span>(84% off)</span>
+                <br>
+                <span>FREE Delivery by Amazon</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/ramu.jpg" alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>Ramgopal Varma</b>
+            </div>
+            <div class="product-name">
+                <span>Naa Ishtam</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(845)</span>
+            </div>
+            <div class="product-price">
+                <b>₹<span>250/-</span></b>
+                <br>
+                <span>₹55.00 shipping</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/book1.jpg" alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>Sri Sri</b>
+            </div>
+            <div class="product-name">
+                <span>Mahaprastanam</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(255)</span>
+            </div>
+            <div class="product-price">
+                <b>₹<span>80/-</span></b>
+                <br>
+                <span>₹33.00 shipping</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/amaravathi kathalu.jpg" alt="images">
+        </div>
+     
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>Sathyam Sankaramanchi</b>
+            </div>
+            <div class="product-name">
+                <span>Amaravathi Kathalu</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(889)</span>
+            </div>
+            <div class="product-price">
+                <span>-15%</span><b>₹<span>425/-</span><del>₹499.00</del></b>
+                <br>
+                <span>Free Delivery</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-img-container">
+            <img src="/images/book3.webp" alt="images">
+        </div>
+        <div class="product-details">
+            <div class="product-brand-name">
+                <b>Devarakonda Bla Gangadhar Tilak</b>
+            </div>
+            <div class="product-name">
+                <span>Amrutham Kurisina Ratri</span>
+            </div>
+            <div class="product-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span>(237)</span>
+            </div>
+            <div class="product-price">
+                <b>₹<span>376/-</span><del>₹450.00</del></b>
+                <br>
+                <span>₹22.00 shipping</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-container">
+    <a href="#top" class="back-to-top">
+      <p>Back To Top</p>
+    </a>
+    <div class="footer-content">
+        <div class="footer-content-details">
+            <u1>
+                <span>Get To Know You</span>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Press Releases</li>
+                <li>Amazon Science</li>
+            </u1>
+        </div>
+        <div class="footer-content-details">
+            <u1>
+                <span>Connect with Us</span>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+            </u1>
+        </div>
+        <div class="footer-content-details">
+            <u1>
+                <span>Make Money with Us</span>
+                <li>Sell on Amazon</li>
+                <li>Sell Under Amazon Accelerator</li>
+                <li>Protect and Build Your Brand</li>
+                <li>Amazon Global Selling</li>
+                <li>Become an Affiliate</li>
+                <li>Fulfilment by Amazon</li>
+                <li>Advertise Your Products</li>
+                <li>Amazon Pay on Merchants</li>
+            </u1>
+        </div>
+       <div class="footer-content-details">
+        <u1>
+
+            <span>Let Us Help You</span>
+            <li>COVID-19 and Amazon</li>
+            <li>Your Account</li>
+            <li>Returns Center</li>
+            <li>100% Purchase Protection</li>
+            <li>Amazon App Download</li>
+            <li>Help</li>
+        </u1>
+       </div>
+    </div>
+</div>
+</body>
